@@ -1,9 +1,9 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER jgeiger@gmail.com
 
 ENV DEBIAN_FRONTEND=noninteractive \
                     TINI_VERSION=v0.9.0 \
-                    GOSU_VERSION=1.7 \
+                    GOSU_VERSION=1.8 \
                     USERNAME=devops
 ENV HOME=/home/$USERNAME
 
