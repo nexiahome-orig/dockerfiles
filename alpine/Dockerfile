@@ -1,7 +1,7 @@
 FROM alpine:edge
 MAINTAINER jgeiger@gmail.com
 
-ENV GOSU_VERSION=1.7
+ENV GOSU_VERSION=1.8
 
 RUN apk add --update \
       tini \
