@@ -2,7 +2,7 @@ FROM nexia/alpine
 MAINTAINER jgeiger@gmail.com
 
 ENV CONSUL_VERSION=0.6.4 \
-    GLIBC_VERSION=2.23-r1
+    GLIBC_VERSION=2.23-r3
 ENV CONSUL_FILE=consul_${CONSUL_VERSION}_linux_amd64.zip \
     GLIBC_FILE=glibc-${GLIBC_VERSION}.apk
 

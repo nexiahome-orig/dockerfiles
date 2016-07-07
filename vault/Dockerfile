@@ -1,7 +1,7 @@
 FROM nexia/alpine
 MAINTAINER jgeiger@gmail.com
 
-ENV VAULT_VERSION=0.5.2
+ENV VAULT_VERSION=0.6.0
 ENV VAULT_FILE=vault_${VAULT_VERSION}_linux_amd64.zip
 
 RUN addgroup -S vault && adduser -S -G vault vault \

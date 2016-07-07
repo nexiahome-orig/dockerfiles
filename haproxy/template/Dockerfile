@@ -5,7 +5,7 @@ EXPOSE 443 8080
 
 WORKDIR /tmp
 
-ENV CONSUL_TEMPLATE_VERSION=0.14.0
+ENV CONSUL_TEMPLATE_VERSION=0.15.0
 
 RUN addgroup -S haproxy && adduser -S -G haproxy haproxy \
       && apk add --update \

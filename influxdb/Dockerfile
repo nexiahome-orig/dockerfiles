@@ -1,7 +1,7 @@
 FROM nexia/ubuntu
 MAINTAINER jgeiger@gmail.com
 
-ENV INFLUXDB_VERSION=influxdb_0.12.2-1
+ENV INFLUXDB_VERSION=influxdb_0.13.0
 ENV INFLUXDB_FILE=${INFLUXDB_VERSION}_amd64.deb
 
 EXPOSE 8088 8091 8083 8086
@@ -10,7 +10,7 @@ USER root
 
 WORKDIR /tmp
 
-RUN wget --quiet https://s3.amazonaws.com/influxdb/${INFLUXDB_FILE} \
+RUN wget --quiet https://dl.influxdata.com/influxdb/releases/${INFLUXDB_FILE} \
       && apt-get -qq -y update \
       && dpkg -i ${INFLUXDB_FILE} \
       && apt-get autoremove \

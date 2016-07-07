@@ -3,7 +3,7 @@ MAINTAINER jgeiger@gmail.com
 
 ENV DEBIAN_FRONTEND=noninteractive \
                     TINI_VERSION=v0.9.0 \
-                    GOSU_VERSION=1.8 \
+                    GOSU_VERSION=1.9 \
                     USERNAME=devops
 ENV HOME=/home/$USERNAME
 

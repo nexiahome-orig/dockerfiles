@@ -1,7 +1,7 @@
 FROM nexia/ubuntu
 MAINTAINER jgeiger@gmail.com
 
-ENV KAPACITOR_VERSION=kapacitor_0.12.0-1
+ENV KAPACITOR_VERSION=kapacitor_0.13.1
 ENV KAPACITOR_FILE=${KAPACITOR_VERSION}_amd64.deb
 
 EXPOSE 9092
@@ -10,7 +10,7 @@ USER root
 
 WORKDIR /tmp
 
-RUN wget --quiet https://s3.amazonaws.com/kapacitor/${KAPACITOR_FILE} \
+RUN wget --quiet https://dl.influxdata.com/kapacitor/releases/${KAPACITOR_FILE} \
       && apt-get -qq -y update \
       && dpkg -i ${KAPACITOR_FILE} \
       && apt-get autoremove \

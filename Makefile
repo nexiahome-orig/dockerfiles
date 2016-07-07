@@ -5,6 +5,7 @@ build:
 	make -C consul
 	make -C grafana
 	make -C haproxy
+	make -C influxdb
 	make -C kapacitor
 	make -C redis
 	make -C telegraf
