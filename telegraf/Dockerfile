@@ -1,7 +1,7 @@
 FROM nexia/ubuntu
 MAINTAINER jgeiger@gmail.com
 
-ENV TELEGRAF_VERSION=telegraf_0.13.1
+ENV TELEGRAF_VERSION=telegraf_0.13.2
 ENV TELEGRAF_FILE=${TELEGRAF_VERSION}_amd64.deb
 
 USER root
