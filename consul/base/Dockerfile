@@ -1,7 +1,7 @@
 FROM nexia/alpine
 MAINTAINER jgeiger@gmail.com
 
-ENV CONSUL_VERSION=0.7.0 \
+ENV CONSUL_VERSION=0.7.1 \
     GLIBC_VERSION=2.23-r3
 ENV CONSUL_FILE=consul_${CONSUL_VERSION}_linux_amd64.zip \
     GLIBC_FILE=glibc-${GLIBC_VERSION}.apk
@@ -12,7 +12,7 @@ RUN addgroup -S consul && adduser -S -G consul consul \
       && apk add --update \
       curl \
       openssl \
-      && curl -Ls https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${GLIBC_FILE} > /tmp/${GLIBC_FILE} \
+      && curl -Ls https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${GLIBC_FILE} > /tmp/${GLIBC_FILE} \
       && apk add --allow-untrusted /tmp/${GLIBC_FILE} \
       && curl -o $CONSUL_FILE -sSL https://releases.hashicorp.com/consul/$CONSUL_VERSION/$CONSUL_FILE \
       && unzip $CONSUL_FILE \

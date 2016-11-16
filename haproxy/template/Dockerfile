@@ -1,23 +1,24 @@
-FROM nexia/alpine
+FROM nexia/ubuntu
 MAINTAINER jgeiger@gmail.com
 
 EXPOSE 443 8080
 
 WORKDIR /tmp
 
-ENV CONSUL_TEMPLATE_VERSION=0.15.0
+ENV CONSUL_TEMPLATE_VERSION=0.16.0
 
-RUN addgroup -S haproxy && adduser -S -G haproxy haproxy \
-      && apk add --update \
-      curl \
+USER root
+
+RUN add-apt-repository ppa:vbernat/haproxy-1.6 \
+      && apt-get -qq -y update \
+      && apt-get -qq -y install \
       haproxy \
-      && curl -o /tmp/consul_template.zip -sSL "https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip" \
+      && wget --quiet "https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip" -O /tmp/consul_template.zip \
       && unzip /tmp/consul_template.zip \
       && mv consul-template /usr/bin \
-      && echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf \
-      && apk del \
-      curl \
-      && rm -rf /var/cache/apk/* /tmp/*
+      && apt-get -qq -y autoremove \
+      && apt-get -qq -y clean \
+      && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME ["/config"]
 
