@@ -5,11 +5,11 @@ EXPOSE 443 8080
 
 WORKDIR /tmp
 
-ENV CONSUL_TEMPLATE_VERSION=0.16.0
+ENV CONSUL_TEMPLATE_VERSION=0.18.1
 
 USER root
 
-RUN add-apt-repository ppa:vbernat/haproxy-1.6 \
+RUN add-apt-repository ppa:vbernat/haproxy-1.7 \
       && apt-get -qq -y update \
       && apt-get -qq -y install \
       haproxy \

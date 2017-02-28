@@ -1,7 +1,0 @@
-{
-  "ui": true,
-  "data_dir": "/data",
-  "dns_config": {
-    "allow_stale": false
-  }
-}
